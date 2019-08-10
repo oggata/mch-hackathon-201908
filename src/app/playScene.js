@@ -1,9 +1,16 @@
 import Phaser from "phaser";
+
+
+function getRandNumberFromRange(min, max) {
+    var rand = min + Math.floor(Math.random() * (max - min));
+    return rand;
+};
+
 export default {
     key: "play",
     preload() {
         this.gameTime = 0;
-        this.player = "";
+        
         this.isGameOver = false;
         this.isPointerDown = false;
         this.touchingTime = 0;
@@ -15,19 +22,12 @@ export default {
         this.bgm = null;
         this.playerJumpCnt = 0;
         //currentPage = getParam('page')
-    },
 
-/*
-getParam(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-},
-*/
+        this.p1 = "";
+        this.p2 = "";
+        this.p3 = "";
+        this.p4 = "";
+    },
 
     create() {
 
@@ -45,23 +45,27 @@ getParam(name, url) {
         this.ground.body.moves = false;
         */
 
-        /*
-        this.player = this.physics.add.sprite(230, 250, "doux");
-        this.player.setScale(0.2);
-        this.player.getBounds();
-        this.player.setBounce(0.2);
-        this.player.setCollideWorldBounds(true);
+        var rand1 = getRandNumberFromRange(1,4);
+        var rand1str = "p1_" + rand1;
 
-        this.player.setSize(100, 180, true);
-        this.player.setOffset(130, 140);
-        */
+        var rand2 = getRandNumberFromRange(1,4);
+        var rand2str = "p1_" + rand2;
 
-        function getRandNumberFromRange(min, max) {
-            var rand = min + Math.floor(Math.random() * (max - min));
-            return rand;
-        };
+        var rand3 = getRandNumberFromRange(1,4);
+        var rand3str = "p1_" + rand3;
 
-        this.physics.add.collider(this.player, this.ground);
+        var rand4 = getRandNumberFromRange(1,4);
+        var rand4str = "p1_" + rand4;
+
+
+        
+        this.p1 = this.add.sprite(230, 100+160*0, rand1str);
+        this.p2 = this.add.sprite(230, 100+160*1, "p2_1");
+        this.p3 = this.add.sprite(230, 100+160*2, "p3_1");
+        this.p4 = this.add.sprite(230, 100+160*3, "p4_1");
+
+
+
 
         /*
         this.scoreText = this.add.text(16, 16, "SCORE: 0", {
@@ -74,8 +78,8 @@ getParam(name, url) {
         });
         */
 
-        this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
-        this.cameras.main.setBounds(0, 0, 800, 600);
+        //this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
+        //this.cameras.main.setBounds(0, 0, 800, 600);
 
 
 
