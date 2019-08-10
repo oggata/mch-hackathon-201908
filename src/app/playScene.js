@@ -53,15 +53,14 @@ for(var i=0;i<=100;i++){
 
 
 
+
+this.posY = 0;
+
         this.p2 = this.add.sprite(640/2, 200+80*1, rand2str);
         this.p1 = this.add.sprite(640/2, 200+80*0-10, rand1str);
 
         this.p1.visible = false;
         this.p2.visible = false;
-
-
-
-
 
 
         let button = this.add.image(640/2, 500, "button_oc");
@@ -79,6 +78,13 @@ for(var i=0;i<=100;i++){
     update() {
 
 
+this.posY+=1;
+if(this.posY>=10){
+    this.posY = 0;
+}
+
+    this.p1.y = 200+80*0-10 + this.posY;
+    this.p2.y = 200+80*1 + this.posY;
 
 
         this.renseiTime++;
