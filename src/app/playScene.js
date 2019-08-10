@@ -8,8 +8,6 @@ function getRandNumberFromRange(min, max) {
 export default {
     key: "play",
     preload() {
-        this.gosei = this.add.sprite(300, 200, 'gosei1');
-        this.gosei.anims.play("gosei_play");
         this.p1 = "";
         this.p2 = "";
         this.p3 = "";
@@ -26,6 +24,9 @@ export default {
         var rand4str = "p1_" + rand4;
 
         this.back = this.add.tileSprite(0, 0, 2000, 2000, "back");
+
+        this.gosei = this.add.sprite(300, 200, 'gosei1');
+        this.gosei.anims.play("gosei_play");
 
         this.p1 = this.add.sprite(640/2, 100+80*0, rand1str);
         this.p1.setScale(0.5);
