@@ -58,7 +58,7 @@ console.log(data);
             //this.scene.switch("play");
             //this.scene.run("play", ["namae","hoge"]);
              //location.href = "https://opensea.io/";
-             open( "https://opensea.io", "_blank" ) ;
+             open( "https://rinkeby.opensea.io/assets/0x399f4d789b525214e11ff9c48d334ec094c8fbb4/112341982520043874066671001570240942421174457542527788973733432059544112090992", "_blank" ) ;
         }, this);
 
     },
