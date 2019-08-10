@@ -115,9 +115,17 @@ export default {
             this.gouseiText.setText(results[0][0] + " + " + results[1][0] + "\r\n=");
             this.gouseiText2.setText(_name1converted + _name2converted);
 
+
+
+        this.load.image('chara001', results[0][1]);
+        this.load.image('chara002', results[1][1]);
+
+
         }).catch(reject => {
             console.log(reject);
         });
+
+        this.back = this.add.tileSprite(0, 0, 2000, 2000, "back");
 
         this.char1 = this.add.sprite(50, 200, 'chara001');
         this.char1.setScale(0.1);

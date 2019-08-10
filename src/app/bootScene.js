@@ -4,7 +4,8 @@ export default {
     preload: function () {
 
         this.load.image('chara001', 'https://www.mycryptoheroes.net/images/heroes/2000/5001.png');
-        this.load.image("background1", require("../assets/background/back1.png"));
+        //this.load.image('chara002', 'https://www.mycryptoheroes.net/images/heroes/2000/5001.png');
+        this.load.image("back", require("../assets/background/1.png"));
         this.load.image("title", require("../assets/background/title.png"));
         this.load.image("button", require("../assets/button.png"));
         this.load.image("platform", require("../assets/background/platform.png"));
