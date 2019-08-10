@@ -14,8 +14,25 @@ export default {
         this.backgroundSpeed = 1;
         this.bgm = null;
         this.playerJumpCnt = 0;
+        //currentPage = getParam('page')
     },
+
+
+getParam(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+},
+
+
     create() {
+
+
+
         /*
         this.bgm = this.sound.add('music')
         this.bgm.setLoop(true)
@@ -26,6 +43,7 @@ export default {
         this.physics.add.existing(this.ground);
         this.ground.body.immovable = true;
         this.ground.body.moves = false;
+        /*
         this.player = this.physics.add.sprite(230, 250, "doux");
         this.player.setScale(0.2);
         this.player.getBounds();
@@ -34,6 +52,7 @@ export default {
 
         this.player.setSize(100, 180, true);
         this.player.setOffset(130, 140);
+        */
 
         function getRandNumberFromRange(min, max) {
             var rand = min + Math.floor(Math.random() * (max - min));
@@ -42,6 +61,7 @@ export default {
 
         this.physics.add.collider(this.player, this.ground);
 
+        /*
         this.scoreText = this.add.text(16, 16, "SCORE: 0", {
             fontSize: "32px",
             fill: "#FFFFFF"
@@ -50,11 +70,19 @@ export default {
             fontSize: "32px",
             fill: "#FFFFFF"
         });
+        */
 
         this.cameras.main.startFollow(this.player, true, 0.05, 0.05);
         this.cameras.main.setBounds(0, 0, 800, 600);
+
+
+
+        //var currentPage = this.getParam('page');
+        //console.log(currentPage);
     },
     update() {
+
+        /*
         this.playerJumpCnt += 1;
         if (this.isGameOver === false) {
                 var pointer = this.input.activePointer;
@@ -95,6 +123,7 @@ export default {
         }
         this.background1.tilePositionX += this.backgroundSpeed * 2;
         //this.ground.tilePositionX += this.backgroundSpeed;
+        */
     },
 };
 //export default GameScene;
