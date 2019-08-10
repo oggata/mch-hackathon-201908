@@ -17,11 +17,11 @@ export default {
         var rand1 = getRandNumberFromRange(1,4);
         var rand1str = "p1_" + rand1;
         var rand2 = getRandNumberFromRange(1,4);
-        var rand2str = "p1_" + rand2;
+        var rand2str = "p2_" + rand2;
         var rand3 = getRandNumberFromRange(1,4);
-        var rand3str = "p1_" + rand3;
+        var rand3str = "p3_" + rand3;
         var rand4 = getRandNumberFromRange(1,4);
-        var rand4str = "p1_" + rand4;
+        var rand4str = "p4_" + rand4;
 
         this.back = this.add.tileSprite(0, 0, 2000, 2000, "back");
 
