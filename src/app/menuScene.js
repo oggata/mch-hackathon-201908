@@ -137,7 +137,7 @@ console.log("call init2");
         //this.back = this.add.tileSprite(0, 0, 2000, 2000, "back");
         this.back = this.add.sprite(640/2, 600/2, "back");
 
-        this.char1 = this.add.sprite(50, 200, 'chara001');
+        this.char1 = this.add.sprite(50, 200, 'chara002');
         this.char1.setScale(0.1);
         this.char2 = this.add.sprite(500, 200, 'chara001');
         this.char2.setScale(0.1);
