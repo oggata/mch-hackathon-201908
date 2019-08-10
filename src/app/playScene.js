@@ -17,7 +17,7 @@ export default {
         //currentPage = getParam('page')
     },
 
-
+/*
 getParam(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -27,22 +27,24 @@ getParam(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 },
-
+*/
 
     create() {
-
-
 
         /*
         this.bgm = this.sound.add('music')
         this.bgm.setLoop(true)
         this.bgm.play();
         */
+
+        /*
         this.background1 = this.add.tileSprite(400, 300, 1600, 600, "background1");
         this.ground = this.add.tileSprite(400, 600, 800, 100, "platform");
         this.physics.add.existing(this.ground);
         this.ground.body.immovable = true;
         this.ground.body.moves = false;
+        */
+
         /*
         this.player = this.physics.add.sprite(230, 250, "doux");
         this.player.setScale(0.2);
