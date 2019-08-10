@@ -72,7 +72,7 @@ export default {
             this.p2.visible = true;
             for (var i = 0; i <= 50; i++) {
                 this.texts[i].x -= 1;
-                console.log(this.texts[0].x);
+                //console.log(this.texts[0].x);
                 this.texts[i].setVisible(true);
             }
         }
