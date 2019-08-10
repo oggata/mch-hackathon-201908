@@ -8,6 +8,7 @@ export default {
         this.load.image("back", require("../assets/background/1.png"));
         this.load.image("title", require("../assets/background/title.png"));
         this.load.image("button", require("../assets/button.png"));
+        this.load.image("button_oc", require("../assets/button_oc.png"));
         this.load.image("platform", require("../assets/background/platform.png"));
 
 
@@ -76,5 +77,6 @@ export default {
             repeat: -1
         });
         this.scene.start("menu");
+        //this.scene.start("top");
     }
 };

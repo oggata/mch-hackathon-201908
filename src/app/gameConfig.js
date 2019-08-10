@@ -3,6 +3,7 @@ import bootScene from "./bootScene";
 import playScene from "./playScene";
 import menuScene from "./menuScene";
 import endScene from "./endScene";
+import topScene from "./topScene";
 
 export default {
   type: Phaser.AUTO,
@@ -32,5 +33,5 @@ scale: {
       debug:false
     }
   },
-  scene: [bootScene, menuScene, playScene, endScene]
+  scene: [bootScene, menuScene, playScene, endScene, topScene]
 };

@@ -10,31 +10,29 @@ function getParam(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+
 function getRandNumberFromRange(min, max) {
     var rand = min + Math.floor(Math.random() * (max - min));
     return rand;
 };
 
 export default {
-    key: "menu",
-    preload: function () {
-        console.log("preload");
-    },
+    key: "top",
 
     init(data){
-console.log("call init");
-console.log(data);
-
-var aaa = localStorage.getItem("STST");
-console.log(aaa);
-console.log("call init2");
-
-
-
 
     },
+    preload() {
 
-    create: function () {
+    },
+    create() {
+
+        this.param1 = "";
+        this.param2 = "";
+        this.param3 = "";
+        this.param4 = "";
+        this.param5 = "";
+
         console.log("create");
         var hero_id1 = getParam('hero_id1');
         if(!hero_id1){
@@ -102,73 +100,52 @@ console.log("call init2");
             };
             request.send(null);
         });
-        const p1 = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve("one")
-            }, 2000);
-        });
-        const p2 = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve("two")
-            }, 1000);
-        });
-        console.log("start");
+
+
         Promise.all([p11, p22]).then(results => {
-            //console.log(results);
-            console.log(results);
-            console.log("gogogogoo");
             this.gouseiText.setText(results[0][0] + " + " + results[1][0]);
             var _name1 = results[0][0];
             var _name1rand = getRandNumberFromRange(1,_name1.length);
             var _name1converted = _name1.slice(0,_name1rand);
             var _name2 = results[1][0];
-            //console.log(getRandNumberFromRange(1,_name2.length));
             var _name2rand = getRandNumberFromRange(1,_name2.length);
             var _name2converted = _name2.slice(0,_name2rand);
-            console.log(_name1converted + _name2converted);
             this.gouseiText.setText(results[0][0] + " + " + results[1][0] + "\r\n=");
             this.gouseiText2.setText(_name1converted + _name2converted);
-            //this.load.image('chara001', results[0][1]);
-            //this.load.image('chara002', results[1][1]);
+            this.param1 = results[0][0];
+            this.param2 = results[0][1];
+            this.param3 = results[1][0];
+            this.param4 = results[0][1];
+            this.param5 = "";
+
+
+            //localStorage.setItem("STST", "ppp");
+            localStorage["STST"] = "aaa";
+            console.log(this.param1);
+            console.log(this.param2);
         }).catch(reject => {
             console.log(reject);
         });
 
-        this.back = this.add.tileSprite(0, 0, 2000, 2000, "back");
 
-        this.char1 = this.add.sprite(50, 200, 'chara001');
-        this.char1.setScale(0.1);
-        this.char2 = this.add.sprite(500, 200, 'chara001');
-        this.char2.setScale(0.1);
-        this.gosei = this.add.sprite(300, 200, 'gosei1');
-        this.gosei.anims.play("gosei_play");
-        this.gouseiText = this.add.text(100, 100, "", {
-            fontSize: "32px",
-            fill: "#FFFFFF"
-        });
-        this.gouseiText2 = this.add.text(100, 160, "", {
-            fontSize: "56px",
-            fill: "#FFFFFF"
-        });
+
 
         let button = this.add.image(640/2, 400, "button");
         button.setInteractive();
         button.on("pointerdown", () => {});
         button.on("pointerdown", function () {
-            console.log("aa");
-            this.scene.switch("play");
-            //this.scene.run("play", ["namae","hoge"]);
+
+            console.log("AAAAAAAAAAAAA");
+            console.log(this.param1);
+            //console.log("aa");
+            this.scene.run("menu", [this.param1,this.param2,this.param3,this.param4,this.param5]);
+
         }, this);
+
+
+
     },
     update() {
-        //console.log(this.player2.x);
-        this.char2.x = this.char2.x - 10;
-        if (this.char2.x <= 100) {
-            this.char2.x = 100;
-        }
-        this.char1.x = this.char1.x + 10;
-        if (this.char1.x >= 500) {
-            this.char1.x = 500;
-        }
-    }
+    },
 };
+//export default GameScene;
