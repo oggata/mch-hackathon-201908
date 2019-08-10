@@ -63,10 +63,10 @@ console.log(data);
     },
     update() {
         this.renseiTime++;
-        if(this.renseiTime>=60*5){
+        if(this.renseiTime>=30*5){
             this.p1.visible = true;
         }  
-        if(this.renseiTime>=60*5){
+        if(this.renseiTime>=30*5){
             this.p2.visible = true;
         }
 

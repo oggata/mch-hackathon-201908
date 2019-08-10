@@ -140,8 +140,8 @@ console.log("call init2");
         this.char1.setScale(0.1);
         this.char2 = this.add.sprite(500, 200, 'chara001');
         this.char2.setScale(0.1);
-        this.gosei = this.add.sprite(300, 200, 'gosei1');
-        this.gosei.anims.play("gosei_play");
+        //this.gosei = this.add.sprite(300, 200, 'gosei1');
+        //this.gosei.anims.play("gosei_play");
         this.gouseiText = this.add.text(100, 100, "", {
             fontSize: "32px",
             fill: "#FFFFFF"
