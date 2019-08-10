@@ -14,36 +14,28 @@ function getRandNumberFromRange(min, max) {
     var rand = min + Math.floor(Math.random() * (max - min));
     return rand;
 };
-
 export default {
     key: "menu",
     preload: function () {
         console.log("preload");
     },
-
-    init(data){
-console.log("call init");
-console.log(data);
-
-var aaa = localStorage.getItem("STST");
-console.log(aaa);
-console.log("call init2");
-
-
-
-
+    init(data) {
+        console.log("call init");
+        console.log(data);
+        var aaa = localStorage.getItem("STST");
+        console.log(aaa);
+        console.log("call init2");
     },
-
     create: function () {
         console.log("create");
         var hero_id1 = getParam('hero_id1');
-        if(!hero_id1){
+        if (!hero_id1) {
             hero_id1 = 50010001;
         }
         //50010001
         console.log(hero_id1);
         var hero_id2 = getParam('hero_id2');
-        if(!hero_id2){
+        if (!hero_id2) {
             hero_id2 = 40070005;
         }
         console.log(hero_id2);
@@ -119,12 +111,12 @@ console.log("call init2");
             console.log("gogogogoo");
             this.gouseiText.setText(results[0][0] + " + " + results[1][0]);
             var _name1 = results[0][0];
-            var _name1rand = getRandNumberFromRange(1,_name1.length);
-            var _name1converted = _name1.slice(0,_name1rand);
+            var _name1rand = getRandNumberFromRange(1, _name1.length);
+            var _name1converted = _name1.slice(0, _name1rand);
             var _name2 = results[1][0];
             //console.log(getRandNumberFromRange(1,_name2.length));
-            var _name2rand = getRandNumberFromRange(1,_name2.length);
-            var _name2converted = _name2.slice(0,_name2rand);
+            var _name2rand = getRandNumberFromRange(1, _name2.length);
+            var _name2converted = _name2.slice(0, _name2rand);
             console.log(_name1converted + _name2converted);
             this.gouseiText.setText(results[0][0] + " + " + results[1][0] + "\r\n=");
             this.gouseiText2.setText(_name1converted + _name2converted);
@@ -133,10 +125,8 @@ console.log("call init2");
         }).catch(reject => {
             console.log(reject);
         });
-
         //this.back = this.add.tileSprite(0, 0, 2000, 2000, "back");
-        this.back = this.add.sprite(640/2, 600/2, "back");
-
+        this.back = this.add.sprite(640 / 2, 600 / 2, "back");
         this.char1 = this.add.sprite(50, 200, 'chara002');
         this.char1.setScale(0.1);
         this.char2 = this.add.sprite(500, 200, 'chara001');
@@ -151,8 +141,7 @@ console.log("call init2");
             fontSize: "56px",
             fill: "#FFFFFF"
         });
-
-        let button = this.add.image(640/2, 450, "button");
+        let button = this.add.image(640 / 2, 450, "button");
         button.setInteractive();
         button.on("pointerdown", () => {});
         button.on("pointerdown", function () {
