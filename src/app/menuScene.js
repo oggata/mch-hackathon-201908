@@ -32,7 +32,6 @@ export default {
         if(!hero_id2){
             hero_id2 = 40070005;
         }
-
         console.log(hero_id2);
         const p11 = new Promise((resolve, reject) => {
             var url = "https://www.mycryptoheroes.net/metadata/heroes/" + hero_id1;
@@ -105,17 +104,13 @@ export default {
             console.log(results);
             console.log("gogogogoo");
             this.gouseiText.setText(results[0][0] + " + " + results[1][0]);
-
-
             var _name1 = results[0][0];
             var _name1rand = getRandNumberFromRange(1,_name1.length);
             var _name1converted = _name1.slice(0,_name1rand);
-
             var _name2 = results[1][0];
             //console.log(getRandNumberFromRange(1,_name2.length));
             var _name2rand = getRandNumberFromRange(1,_name2.length);
             var _name2converted = _name2.slice(0,_name2rand);
-
             console.log(_name1converted + _name2converted);
             this.gouseiText.setText(results[0][0] + " + " + results[1][0] + "\r\n=");
             this.gouseiText2.setText(_name1converted + _name2converted);
@@ -124,29 +119,22 @@ export default {
             console.log(reject);
         });
 
-        this.char1 = this.physics.add.sprite(50, 50, 'chara001');
+        this.char1 = this.add.sprite(50, 200, 'chara001');
         this.char1.setScale(0.1);
-        this.char1.setCollideWorldBounds(true);
-        this.char1.body.setAllowGravity(false);
-        this.char2 = this.physics.add.sprite(500, 50, 'chara001');
+        this.char2 = this.add.sprite(500, 200, 'chara001');
         this.char2.setScale(0.1);
-        this.char2.setCollideWorldBounds(true);
-        this.char2.body.setAllowGravity(false);
-        this.gosei = this.physics.add.sprite(300, 200, 'gosei1');
-        //this.gosei.setScale(0.1);
-        //this.char2.setCollideWorldBounds(true);
-        this.gosei.body.setAllowGravity(false);
+        this.gosei = this.add.sprite(300, 200, 'gosei1');
         this.gosei.anims.play("gosei_play");
-        this.gouseiText = this.add.text(100, 100, "予想:ちんちん", {
+        this.gouseiText = this.add.text(100, 100, "", {
             fontSize: "32px",
             fill: "#FFFFFF"
         });
-        this.gouseiText2 = this.add.text(100, 160, "予想:ちんちん", {
+        this.gouseiText2 = this.add.text(100, 160, "", {
             fontSize: "56px",
             fill: "#FFFFFF"
         });
 
-        let button = this.add.image(400, 300, "button");
+        let button = this.add.image(640/2, 400, "button");
         button.setInteractive();
         button.on("pointerdown", () => {});
         button.on("pointerover", () => title.setTint(0xcccccc));
@@ -159,12 +147,12 @@ export default {
     update() {
         //console.log(this.player2.x);
         this.char2.x = this.char2.x - 10;
-        if (this.char2.x <= 0) {
-            this.char2.x = 0;
+        if (this.char2.x <= 100) {
+            this.char2.x = 100;
         }
         this.char1.x = this.char1.x + 10;
-        if (this.char1.x >= 600) {
-            this.char1.x = 600;
+        if (this.char1.x >= 500) {
+            this.char1.x = 500;
         }
     }
 };

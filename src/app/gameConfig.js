@@ -10,7 +10,7 @@ scale: {
         mode: Phaser.Scale.FIT,
         parent: 'canvas',
         autoCenter: Phaser.Scale.CENTER_BOTH,
-        width: 800,
+        width: 640,
         height: 600
     },
   //width: 800,
