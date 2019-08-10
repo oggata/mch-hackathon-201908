@@ -36,11 +36,29 @@ console.log(data);
         this.gosei = this.add.sprite(320, 240, 'gosei1');
         this.gosei.anims.play("gosei_play");
 
+
+this.array = [];
+this.texts = [];
+for(var i=0;i<=100;i++){
+        var ouen = this.add.text(getRandNumberFromRange(100,1500), getRandNumberFromRange(10,500), "すごーい", {
+            fontSize: "32px",
+            fill: "#FFFFFF"
+        });
+        ouen.setVisible(false);
+        this.texts.push(ouen);
+}
+
+
+
         this.p2 = this.add.sprite(640/2, 200+80*1, rand2str);
         this.p1 = this.add.sprite(640/2, 200+80*0-10, rand1str);
 
         this.p1.visible = false;
         this.p2.visible = false;
+
+
+
+
 
 
         let button = this.add.image(640/2, 500, "button_oc");
@@ -56,13 +74,29 @@ console.log(data);
 
     },
     update() {
+
+
+
+
         this.renseiTime++;
         if(this.renseiTime>=30*3){
             this.p1.visible = true;
         }  
         if(this.renseiTime>=30*3){
             this.p2.visible = true;
+
+
+for(var i=0;i<=50;i++){
+    this.texts[i].x-=1;
+    console.log(this.texts[0].x);
+    this.texts[i].setVisible(true);
+}
+
+
         }
+
+
+
 
     },
 };
