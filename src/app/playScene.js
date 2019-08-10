@@ -22,9 +22,9 @@ console.log(data);
         this.renseiTime = 0;
     },
     create() {
-        var rand1 = getRandNumberFromRange(1,4);
+        var rand1 = getRandNumberFromRange(1,6);
         var rand1str = "p1_" + rand1;
-        var rand2 = getRandNumberFromRange(1,4);
+        var rand2 = getRandNumberFromRange(1,6);
         var rand2str = "p2_" + rand2;
         var rand3 = getRandNumberFromRange(1,4);
         var rand3str = "p3_" + rand3;
@@ -35,19 +35,12 @@ console.log(data);
 
         this.gosei = this.add.sprite(320, 240, 'gosei1');
         this.gosei.anims.play("gosei_play");
-        this.p1 = this.add.sprite(640/2, 100+80*0, rand1str);
-        this.p1.setScale(0.5);
-        this.p2 = this.add.sprite(640/2, 100+80*1, rand2str);
-        this.p2.setScale(0.5);
-        this.p3 = this.add.sprite(640/2, 100+80*2, rand3str);
-        this.p3.setScale(0.5);
-        this.p4 = this.add.sprite(640/2, 100+80*3, rand4str);
-        this.p4.setScale(0.5);
+
+        this.p2 = this.add.sprite(640/2, 200+80*1, rand2str);
+        this.p1 = this.add.sprite(640/2, 200+80*0-10, rand1str);
 
         this.p1.visible = false;
         this.p2.visible = false;
-        this.p3.visible = false;
-        this.p4.visible = false;
 
 
         let button = this.add.image(640/2, 500, "button_oc");
@@ -64,10 +57,10 @@ console.log(data);
     },
     update() {
         this.renseiTime++;
-        if(this.renseiTime>=30*5){
+        if(this.renseiTime>=30*3){
             this.p1.visible = true;
         }  
-        if(this.renseiTime>=30*5){
+        if(this.renseiTime>=30*3){
             this.p2.visible = true;
         }
 

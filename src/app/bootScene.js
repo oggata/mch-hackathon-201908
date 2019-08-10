@@ -19,11 +19,15 @@ export default {
         this.load.image("p1_2", require("../assets/gosei/p1/2.png"));
         this.load.image("p1_3", require("../assets/gosei/p1/3.png"));
         this.load.image("p1_4", require("../assets/gosei/p1/4.png"));
+        this.load.image("p1_5", require("../assets/gosei/p1/5.png"));
+        this.load.image("p1_6", require("../assets/gosei/p1/6.png"));
 
         this.load.image("p2_1", require("../assets/gosei/p2/1.png"));
         this.load.image("p2_2", require("../assets/gosei/p2/2.png"));
         this.load.image("p2_3", require("../assets/gosei/p2/3.png"));
         this.load.image("p2_4", require("../assets/gosei/p2/4.png"));
+        this.load.image("p2_5", require("../assets/gosei/p2/4.png"));
+        this.load.image("p2_6", require("../assets/gosei/p2/4.png"));
 
         this.load.image("p3_1", require("../assets/gosei/p3/1.png"));
         this.load.image("p3_2", require("../assets/gosei/p3/2.png"));
