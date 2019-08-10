@@ -38,9 +38,12 @@ console.log(data);
 
 
 this.array = [];
+
+var array = ["すごーい","やった","おめでとう","タピオカ！","わっしょい","それそれ","待ってました","嬉しい！","おおおお","いえい","！！！","><"];
+//console.log(array[Math.floor(Math.random() * array.length)]);
 this.texts = [];
 for(var i=0;i<=100;i++){
-        var ouen = this.add.text(getRandNumberFromRange(100,1500), getRandNumberFromRange(10,500), "すごーい", {
+        var ouen = this.add.text(getRandNumberFromRange(100,1500), getRandNumberFromRange(10,500), array[Math.floor(Math.random() * array.length)], {
             fontSize: "32px",
             fill: "#FFFFFF"
         });
