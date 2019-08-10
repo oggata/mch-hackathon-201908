@@ -18,6 +18,8 @@ console.log(data);
         this.p2 = "";
         this.p3 = "";
         this.p4 = "";
+
+        this.renseiTime = 0;
     },
     create() {
         var rand1 = getRandNumberFromRange(1,4);
@@ -41,6 +43,12 @@ console.log(data);
         this.p4 = this.add.sprite(640/2, 100+80*3, rand4str);
         this.p4.setScale(0.5);
 
+        this.p1.visible = false;
+        this.p2.visible = false;
+        this.p3.visible = false;
+        this.p4.visible = false;
+
+
         let button = this.add.image(640/2, 450, "button_oc");
         button.setInteractive();
         button.on("pointerdown", () => {});
@@ -54,6 +62,14 @@ console.log(data);
 
     },
     update() {
+        this.renseiTime++;
+        if(this.renseiTime>=60*5){
+            this.p1.visible = true;
+        }  
+        if(this.renseiTime>=60*5){
+            this.p2.visible = true;
+        }
+
     },
 };
 //export default GameScene;
