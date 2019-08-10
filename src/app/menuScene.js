@@ -10,6 +10,11 @@ function getParam(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+function getRandNumberFromRange(min, max) {
+    var rand = min + Math.floor(Math.random() * (max - min));
+    return rand;
+};
+
 export default {
     key: "menu",
     preload: function () {
@@ -99,9 +104,21 @@ export default {
             //console.log(results);
             console.log(results);
             console.log("gogogogoo");
-
-            //this.scoreText = results[0][1] + "と" +results[1][1] + "を合成します";
             this.gouseiText.setText(results[0][0] + " + " + results[1][0]);
+
+
+            var _name1 = results[0][0];
+            var _name1rand = getRandNumberFromRange(1,_name1.length);
+            var _name1converted = _name1.slice(0,_name1rand);
+
+            var _name2 = results[1][0];
+            //console.log(getRandNumberFromRange(1,_name2.length));
+            var _name2rand = getRandNumberFromRange(1,_name2.length);
+            var _name2converted = _name2.slice(0,_name2rand);
+
+            console.log(_name1converted + _name2converted);
+            this.gouseiText.setText(results[0][0] + " + " + results[1][0] + "\r\n=");
+            this.gouseiText2.setText(_name1converted + _name2converted);
 
         }).catch(reject => {
             console.log(reject);
@@ -124,6 +141,11 @@ export default {
             fontSize: "32px",
             fill: "#FFFFFF"
         });
+        this.gouseiText2 = this.add.text(100, 160, "予想:ちんちん", {
+            fontSize: "56px",
+            fill: "#FFFFFF"
+        });
+
         let button = this.add.image(400, 300, "button");
         button.setInteractive();
         button.on("pointerdown", () => {});
