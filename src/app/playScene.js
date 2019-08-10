@@ -31,8 +31,9 @@ console.log(data);
         var rand4 = getRandNumberFromRange(1,4);
         var rand4str = "p4_" + rand4;
 
-        this.back = this.add.tileSprite(0, 0, 2000, 2000, "back");
-        this.gosei = this.add.sprite(300, 200, 'gosei1');
+        this.back = this.add.sprite(640/2, 600/2, "back2");
+
+        this.gosei = this.add.sprite(320, 240, 'gosei1');
         this.gosei.anims.play("gosei_play");
         this.p1 = this.add.sprite(640/2, 100+80*0, rand1str);
         this.p1.setScale(0.5);
@@ -49,7 +50,7 @@ console.log(data);
         this.p4.visible = false;
 
 
-        let button = this.add.image(640/2, 450, "button_oc");
+        let button = this.add.image(640/2, 500, "button_oc");
         button.setInteractive();
         button.on("pointerdown", () => {});
         button.on("pointerdown", function () {

@@ -134,7 +134,8 @@ console.log("call init2");
             console.log(reject);
         });
 
-        this.back = this.add.tileSprite(0, 0, 2000, 2000, "back");
+        //this.back = this.add.tileSprite(0, 0, 2000, 2000, "back");
+        this.back = this.add.sprite(640/2, 600/2, "back");
 
         this.char1 = this.add.sprite(50, 200, 'chara001');
         this.char1.setScale(0.1);
@@ -142,16 +143,16 @@ console.log("call init2");
         this.char2.setScale(0.1);
         //this.gosei = this.add.sprite(300, 200, 'gosei1');
         //this.gosei.anims.play("gosei_play");
-        this.gouseiText = this.add.text(100, 100, "", {
+        this.gouseiText = this.add.text(100, 150, "", {
             fontSize: "32px",
             fill: "#FFFFFF"
         });
-        this.gouseiText2 = this.add.text(100, 160, "", {
+        this.gouseiText2 = this.add.text(100, 200, "", {
             fontSize: "56px",
             fill: "#FFFFFF"
         });
 
-        let button = this.add.image(640/2, 400, "button");
+        let button = this.add.image(640/2, 450, "button");
         button.setInteractive();
         button.on("pointerdown", () => {});
         button.on("pointerdown", function () {
