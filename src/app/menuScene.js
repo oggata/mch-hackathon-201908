@@ -26,7 +26,7 @@ export default {
     },
     create: function () {
         console.log("call create");
-
+//?hero_id1=30040250&hero_id2=40140045
         var _kimeraName = makeKimeraName(_data[0][0],_data[1][0]);
 
         this.back = this.add.sprite(640 / 2, 600 / 2, "back");
@@ -52,8 +52,8 @@ export default {
         button.on("pointerdown", () => {});
         button.on("pointerdown", function () {
             console.log("aa");
-            //this.scene.switch("play");
-            this.scene.run("play", ["namae","hoge"]);
+            this.scene.switch("play");
+            //this.scene.run("play", []);
         }, this);
     },
     update() {

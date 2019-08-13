@@ -27,7 +27,7 @@ export default {
             //50010001
             var hero_id2 = getParam('hero_id2');
             if (!hero_id2) {
-                hero_id2 = 50010001;
+                hero_id2 = 40140045;
             }
             const p11 = new Promise((resolve, reject) => {
                 var url = "https://www.mycryptoheroes.net/metadata/heroes/" + hero_id1;
@@ -104,10 +104,12 @@ export default {
             callback: callback,
             // scope: scope
         });
+        this.load.image("back0", require("../assets/background/0.png"));
         this.load.image("back", require("../assets/background/1.png"));
         this.load.image("back2", require("../assets/background/2.png"));
         this.load.image("title", require("../assets/background/title.png"));
         this.load.image("button", require("../assets/button.png"));
+        this.load.image("button_top", require("../assets/button_top.png"));
         this.load.image("button_oc", require("../assets/button_oc.png"));
         this.load.image("platform", require("../assets/background/platform.png"));
         this.load.image("p1_1", require("../assets/gosei/p1/1.png"));
@@ -165,9 +167,6 @@ export default {
             frameRate: 15,
             repeat: -1
         });
-
-        //this.scene.start("menu");
-        //this.scene.start("top");
-        this.scene.run("menu",_sendData);
+        this.scene.run("top",_sendData);
     }
 };

@@ -2,6 +2,7 @@ import Phaser from "phaser";
 import bootScene from "./bootScene";
 import playScene from "./playScene";
 import menuScene from "./menuScene";
+import topScene from "./topScene";
 import AwaitLoaderPlugin from '../../plugins/awaitloader-plugin.js';
 
 
@@ -42,5 +43,5 @@ scale: {
       debug:false
     }
   },
-  scene: [bootScene, menuScene, playScene]
+  scene: [bootScene,topScene, menuScene, playScene]
 };
