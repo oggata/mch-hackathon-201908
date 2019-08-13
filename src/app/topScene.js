@@ -117,8 +117,6 @@ export default {
             this.param3 = results[1][0];
             this.param4 = results[0][1];
             this.param5 = "";
-
-
             //localStorage.setItem("STST", "ppp");
             localStorage["STST"] = "aaa";
             console.log(this.param1);
@@ -126,8 +124,6 @@ export default {
         }).catch(reject => {
             console.log(reject);
         });
-
-
 
 
         let button = this.add.image(640/2, 400, "button");

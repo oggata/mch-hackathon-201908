@@ -2,8 +2,9 @@ import Phaser from "phaser";
 import bootScene from "./bootScene";
 import playScene from "./playScene";
 import menuScene from "./menuScene";
-import endScene from "./endScene";
-import topScene from "./topScene";
+import AwaitLoaderPlugin from '../../plugins/awaitloader-plugin.js';
+
+
 
 export default {
   type: Phaser.AUTO,
@@ -24,6 +25,14 @@ scale: {
     text: "white",
     background: ["#FD7400", "#FFE11A", "#BEDB39", "#1F8A70", "#004358"]
   },
+  plugins: {
+        global: [{
+            key: 'AwaitLoader',
+            plugin: AwaitLoaderPlugin,
+            start: true
+        },
+        ]
+    },
   physics: {
     default: "arcade",
     arcade: {
@@ -33,5 +42,5 @@ scale: {
       debug:false
     }
   },
-  scene: [bootScene, menuScene, playScene, endScene, topScene]
+  scene: [bootScene, menuScene, playScene]
 };
