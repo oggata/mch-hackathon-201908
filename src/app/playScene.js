@@ -26,9 +26,12 @@ export default {
         var rand3str = "p3_" + rand3;
         var rand4 = getRandNumberFromRange(1, 4);
         var rand4str = "p4_" + rand4;
-        this.back = this.add.sprite(640 / 2, 600 / 2, "back2");
+        this.back = this.add.sprite(640 / 2, 600 / 2, "back");
         this.gosei = this.add.sprite(320, 240, 'gosei1');
         this.gosei.anims.play("gosei_play");
+        this.kamifubuki = this.add.sprite(320, 260, 'kamifubuki');
+        this.kamifubuki.anims.play("kamifubuki_play");
+        this.kamifubuki.setVisible(false);
         this.array = [];
         var array = ["すごーい", "やった", "おめでとう", "タピオカ！", "わっしょい", "それそれ", "待ってました", "嬉しい！", "おおおお", "いえい", "！！！", "><"];
         //console.log(array[Math.floor(Math.random() * array.length)]);
@@ -69,6 +72,9 @@ export default {
             for (var i = 0; i <= 50; i++) {
                 this.texts[i].x -= 1;
                 this.texts[i].setVisible(true);
+
+                this.gosei.setVisible(false);
+                this.kamifubuki.setVisible(true);
             }
         }
     },

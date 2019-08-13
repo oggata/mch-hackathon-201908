@@ -134,6 +134,12 @@ export default {
             frameWidth: 640,
             frameHeight: 480
         });
+
+        this.load.spritesheet("kamifubuki", require("../assets/sprites/kamifubuki64.png"), {
+            frameWidth: 640,
+            frameHeight: 480
+        });
+
         var rect = new Phaser.Geom.Rectangle(200, 285, 400, 30);
         var gfx = this.add.graphics();
         this.load.on("progress", function (progress) {
@@ -145,11 +151,21 @@ export default {
             key: "gosei_play",
             frames: this.anims.generateFrameNumbers("gosei1", {
                 start: 0,
-                end: 4
+                end: 24
+            }),
+            frameRate: 15,
+            repeat: 0
+        });
+        this.anims.create({
+            key: "kamifubuki_play",
+            frames: this.anims.generateFrameNumbers("kamifubuki", {
+                start: 0,
+                end: 24
             }),
             frameRate: 15,
             repeat: -1
         });
+
         //this.scene.start("menu");
         //this.scene.start("top");
         this.scene.run("menu",_sendData);
