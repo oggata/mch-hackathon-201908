@@ -26,27 +26,15 @@ export default {
     },
     create: function () {
         console.log("call create");
-//?hero_id1=30040250&hero_id2=40140045
         var _kimeraName = makeKimeraName(_data[0][0],_data[1][0]);
-
         this.back = this.add.sprite(640 / 2, 600 / 2, "back");
         this.char1 = this.add.sprite(50, 270, 'chara005');
         this.char1.setScale(0.1);
-        this.char1Name = this.add.text(100, 400, _data[0][0], {
-            fontSize: "18px",
-            fill: "#FFFFFF"
-        });        
+        this.char1Name = this.add.text(180, 410, _data[0][0]).setFontSize(18).setFontFamily("Arial").setOrigin(0.5);
         this.char2 = this.add.sprite(500, 270, 'chara006');
         this.char2.setScale(0.1);
-        this.char2Name = this.add.text(100, 400, _data[1][0], {
-            fontSize: "18px",
-            fill: "#FFFFFF"
-        });
-        this.gouseiText = this.add.text(100, 70, _kimeraName, {
-            fontSize: "28px",
-            fill: "#FFFFFF"
-        });
-
+        this.char2Name = this.add.text(180, 410, _data[1][0]).setFontSize(18).setFontFamily("Arial").setOrigin(0.5);
+        this.gouseiText = this.add.text(320, 100, _kimeraName).setFontSize(32).setFontFamily("Arial").setOrigin(0.5);
         let button = this.add.image(640 / 2, 520, "button");
         button.setInteractive();
         button.on("pointerdown", () => {});
@@ -65,7 +53,7 @@ export default {
         if (this.char2.x <= 120) {
             this.char2.x = 120;
         }
-        this.char1Name.x = this.char1.x - 20;
-        this.char2Name.x = this.char2.x - 20;
+        this.char1Name.x = this.char1.x + 20;
+        this.char2Name.x = this.char2.x + 40;
     }
 };
