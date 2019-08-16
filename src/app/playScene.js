@@ -31,7 +31,7 @@ export default {
 
         this.gosei = this.add.sprite(320, 380, 'gosei1');
         this.gosei.anims.play("gosei_play");
-        this.gosei.setScale(1.8);
+        this.gosei.setScale(2);
         this.kamifubuki = this.add.sprite(320, 260 + 120, 'kamifubuki');
         this.kamifubuki.anims.play("kamifubuki_play");
         this.kamifubuki.setScale(5);
@@ -48,8 +48,12 @@ export default {
             this.texts.push(ouen);
         }
         this.posY = 0;
-        this.p2 = this.add.sprite(640 / 2, 200 + 80 * 1, rand2str);
-        this.p1 = this.add.sprite(640 / 2, 200 + 80 * 0 - 10, rand1str);
+        this.p2 = this.add.sprite(640 / 2, 0, "chara005_conv");
+        this.p2.setScale(0.3);
+        this.p1 = this.add.sprite(640 / 2, 0, "chara006_conv2");
+        this.p1.anims.play("chara006_conv2");
+        this.p1.setScale(0.3);
+
         this.p1.visible = false;
         this.p2.visible = false;
         let button = this.add.image(640 / 2, height / 2 + 320, "button_oc");
@@ -64,8 +68,8 @@ export default {
         if (this.posY >= 10) {
             this.posY = 0;
         }
-        this.p1.y = 280 + 80 * 0 - 10 + this.posY;
-        this.p2.y = 280 + 80 * 1 + this.posY;
+        this.p1.y = 480 + 80 * 0 - 10 + this.posY;
+        this.p2.y = 150 + 80 * 1 + this.posY;
         this.renseiTime++;
         if (this.renseiTime >= 30 * 3) {
             this.p1.visible = true;
@@ -75,7 +79,6 @@ export default {
             for (var i = 0; i <= 50; i++) {
                 this.texts[i].x -= 1;
                 this.texts[i].setVisible(true);
-
                 this.gosei.setVisible(false);
                 this.kamifubuki.setVisible(true);
             }

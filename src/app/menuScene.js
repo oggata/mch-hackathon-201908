@@ -20,16 +20,42 @@ export default {
     preload: function () {
         this.load.image('chara005', _data[0][1]);
         this.load.image('chara006', _data[1][1]);  
+        this.load.spritesheet("chara005_conv", _data[0][1], {
+            frameWidth: 2000,
+            frameHeight: 1000
+        });
+        this.load.spritesheet("chara006_conv", _data[1][1], {
+            frameWidth: 2000,
+            frameHeight: 1000
+        });
+
+        this.load.spritesheet("gosei1", require("../assets/sprites/pipo-btleffect168_640.png"), {
+            frameWidth: 2000,
+            frameHeight: 1000
+        });
     },
     init(data) {
         _data = data;
     },
     create: function () {
+
+        this.anims.create({
+            key: "chara006_conv2",
+            frames: this.anims.generateFrameNumbers("chara006_conv", {
+                start: 0,
+                end: 1
+            }),
+            frameRate: 15,
+            repeat: 0
+        });
+        
         console.log("call create");
         let { width, height } = this.sys.game.canvas;
         var _kimeraName = makeKimeraName(_data[0][0],_data[1][0]);
         this.back = this.add.sprite(width / 2, height / 2, "back");
         this.char1 = this.add.sprite(50, 270+ 100, 'chara005');
+
+
         this.char1.setScale(0.1);
         this.char1Name = this.add.text(180, 410+ 100, _data[0][0]).setFontSize(18).setFontFamily("Arial").setOrigin(0.5);
         this.char2 = this.add.sprite(500, 270+ 100, 'chara006');
