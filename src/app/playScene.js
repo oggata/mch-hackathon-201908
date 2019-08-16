@@ -18,6 +18,7 @@ export default {
         this.renseiTime = 0;
     },
     create() {
+        let { width, height } = this.sys.game.canvas;
         var rand1 = getRandNumberFromRange(1, 6);
         var rand1str = "p1_" + rand1;
         var rand2 = getRandNumberFromRange(1, 6);
@@ -26,18 +27,20 @@ export default {
         var rand3str = "p3_" + rand3;
         var rand4 = getRandNumberFromRange(1, 4);
         var rand4str = "p4_" + rand4;
-        this.back = this.add.sprite(640 / 2, 600 / 2, "back");
-        this.gosei = this.add.sprite(320, 240, 'gosei1');
+        this.back = this.add.sprite(width / 2, height / 2, "back");
+
+        this.gosei = this.add.sprite(320, 380, 'gosei1');
         this.gosei.anims.play("gosei_play");
-        this.kamifubuki = this.add.sprite(320, 260, 'kamifubuki');
+        this.gosei.setScale(1.8);
+        this.kamifubuki = this.add.sprite(320, 260 + 120, 'kamifubuki');
         this.kamifubuki.anims.play("kamifubuki_play");
+        this.kamifubuki.setScale(5);
         this.kamifubuki.setVisible(false);
         this.array = [];
         var array = ["すごーい", "やった", "おめでとう", "タピオカ！", "わっしょい", "それそれ", "待ってました", "嬉しい！", "おおおお", "いえい", "！！！", "><"];
-        //console.log(array[Math.floor(Math.random() * array.length)]);
         this.texts = [];
         for (var i = 0; i <= 100; i++) {
-            var ouen = this.add.text(getRandNumberFromRange(100, 1500), getRandNumberFromRange(10, 500), array[Math.floor(Math.random() * array.length)], {
+            var ouen = this.add.text(getRandNumberFromRange(100, 1500), getRandNumberFromRange(180, 600), array[Math.floor(Math.random() * array.length)], {
                 fontSize: "32px",
                 fill: "#FFFFFF"
             });
@@ -49,7 +52,7 @@ export default {
         this.p1 = this.add.sprite(640 / 2, 200 + 80 * 0 - 10, rand1str);
         this.p1.visible = false;
         this.p2.visible = false;
-        let button = this.add.image(640 / 2, 500, "button_oc");
+        let button = this.add.image(640 / 2, height / 2 + 320, "button_oc");
         button.setInteractive();
         button.on("pointerdown", () => {});
         button.on("pointerdown", function () {
@@ -61,8 +64,8 @@ export default {
         if (this.posY >= 10) {
             this.posY = 0;
         }
-        this.p1.y = 200 + 80 * 0 - 10 + this.posY;
-        this.p2.y = 200 + 80 * 1 + this.posY;
+        this.p1.y = 280 + 80 * 0 - 10 + this.posY;
+        this.p2.y = 280 + 80 * 1 + this.posY;
         this.renseiTime++;
         if (this.renseiTime >= 30 * 3) {
             this.p1.visible = true;

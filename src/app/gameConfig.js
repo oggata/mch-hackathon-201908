@@ -9,12 +9,12 @@ import AwaitLoaderPlugin from '../../plugins/awaitloader-plugin.js';
 
 export default {
   type: Phaser.AUTO,
-scale: {
+    scale: {
         mode: Phaser.Scale.FIT,
         parent: 'canvas',
         autoCenter: Phaser.Scale.CENTER_BOTH,
         width: 640,
-        height: 600
+        height: 920
     },
   //width: 800,
   //height: 600,

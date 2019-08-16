@@ -26,16 +26,18 @@ export default {
     },
     create: function () {
         console.log("call create");
+        let { width, height } = this.sys.game.canvas;
         var _kimeraName = makeKimeraName(_data[0][0],_data[1][0]);
-        this.back = this.add.sprite(640 / 2, 600 / 2, "back");
-        this.char1 = this.add.sprite(50, 270, 'chara005');
+        this.back = this.add.sprite(width / 2, height / 2, "back");
+        this.char1 = this.add.sprite(50, 270+ 100, 'chara005');
         this.char1.setScale(0.1);
-        this.char1Name = this.add.text(180, 410, _data[0][0]).setFontSize(18).setFontFamily("Arial").setOrigin(0.5);
-        this.char2 = this.add.sprite(500, 270, 'chara006');
+        this.char1Name = this.add.text(180, 410+ 100, _data[0][0]).setFontSize(18).setFontFamily("Arial").setOrigin(0.5);
+        this.char2 = this.add.sprite(500, 270+ 100, 'chara006');
         this.char2.setScale(0.1);
-        this.char2Name = this.add.text(180, 410, _data[1][0]).setFontSize(18).setFontFamily("Arial").setOrigin(0.5);
-        this.gouseiText = this.add.text(320, 100, _kimeraName).setFontSize(32).setFontFamily("Arial").setOrigin(0.5);
-        let button = this.add.image(640 / 2, 520, "button");
+        this.char2Name = this.add.text(180, 410+ 100, _data[1][0]).setFontSize(18).setFontFamily("Arial").setOrigin(0.5);
+        this.gouseiText = this.add.text(320, 100 + 100, _kimeraName).setFontSize(32).setFontFamily("Arial").setOrigin(0.5);
+        //let button = this.add.image(width / 2, 620+ 100, "button");
+        let button = this.add.image(640 / 2, height / 2 + 320, "button");
         button.setInteractive();
         button.on("pointerdown", () => {});
         button.on("pointerdown", function () {

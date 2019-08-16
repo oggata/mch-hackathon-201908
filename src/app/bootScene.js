@@ -11,14 +11,14 @@ function getParam(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-
-var _sendData = "bbb";
+var _sendData = "";
 function setHoge(data){
     _sendData = data;
 }
 export default {
     key: "boot",
     preload: function () {
+        let { width, height } = this.sys.game.canvas;
         var callback = function (successCallback,failureCallback) {
             var hero_id1 = getParam('hero_id1');
             if (!hero_id1) {
@@ -80,19 +80,6 @@ export default {
                 };
                 request.send(null);
             });
-            /*
-            const p1 = new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    resolve("one")
-                }, 5000);
-            });
-            const p2 = new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    resolve("two")
-                }, 1000);
-            });
-            */
-            //console.log("start");
             Promise.all([p11, p22]).then(results => {
                 setHoge(results);
                 successCallback("aaa");
@@ -132,20 +119,21 @@ export default {
         this.load.image("p4_2", require("../assets/gosei/p4/2.png"));
         this.load.image("p4_3", require("../assets/gosei/p4/3.png"));
         this.load.image("p4_4", require("../assets/gosei/p4/4.png"));
+
         this.load.spritesheet("gosei1", require("../assets/sprites/pipo-btleffect168_640.png"), {
             frameWidth: 640,
             frameHeight: 480
         });
 
-        this.load.spritesheet("kamifubuki", require("../assets/sprites/kamifubuki64.png"), {
-            frameWidth: 640,
-            frameHeight: 480
+        this.load.spritesheet("kamifubuki", require("../assets/sprites/kamifubuki36.png"), {
+            frameWidth: 320,
+            frameHeight: 240
         });
 
-        var rect = new Phaser.Geom.Rectangle(200, 285, 400, 30);
+        var rect = new Phaser.Geom.Rectangle(width/2-100, 285, 200, 30);
         var gfx = this.add.graphics();
         this.load.on("progress", function (progress) {
-            gfx.clear().fillStyle(0x666666).fillRectShape(rect).fillStyle(0xffffff).fillRect(rect.x, rect.y, progress * rect.width, rect.height);
+            gfx.clear().fillStyle(0x666666).fillRectShape(rect).fillStyle(0xffffff).fillRect(width/2-100, rect.y, progress * 200, rect.height);
         });
     },
     create: function () {

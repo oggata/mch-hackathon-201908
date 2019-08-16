@@ -11,15 +11,12 @@ export default {
         console.log(_data);
     },
     create() {
-        this.back = this.add.sprite(640 / 2, 600 / 2, "back0");
-        let button = this.add.image(640 / 2, 520, "button_top");
+        let { width, height } = this.sys.game.canvas;
+        this.back = this.add.sprite(width / 2, height / 2, "back0");
+        let button = this.add.image(width / 2, height / 2 + 320, "button_top");
         button.setInteractive();
-        //button.on("pointerdown", () => {});
         button.on("pointerdown", function () {
-            //console.log("aa");
-            //this.scene.switch("menu");
             this.scene.run("menu",_data);
-            //this.scene.run("menu", []);
         }, this);
     },
     update() {
