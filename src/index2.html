@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>MCH合成ツール</title>
+<script type="text/javascript">
+function draw2(){
+var img = new Image();
+img.src = 'https://www.mycryptoheroes.net/images/heroes/2000/4014.png';
+var canvas = document.getElementById('SimpleCanvas3');
+var ctx = canvas.getContext('2d');
+img.onload = function() {
+  ctx.drawImage(img, 0, 0);
+};
+}
+function draw() {
+const canvas1 = document.getElementById('SimpleCanvas1');
+const context1 = canvas1.getContext('2d');
+const canvas2 = document.getElementById('SimpleCanvas2');
+const context2 = canvas2.getContext('2d');
+const canvas3 = document.getElementById('SimpleCanvas3');
+const context3 = canvas3.getContext('2d');
+const img1 = new Image();
+const img2 = new Image();
+const img3 = new Image();
+//img1.src = '2.png';
+//img2.src = '3.png';
+img1.src = 'https://www.mycryptoheroes.net/images/heroes/2000/5001.png';
+img2.src = 'https://www.mycryptoheroes.net/images/heroes/2000/4014.png';
+img1.crossOrigin = "Anonymous";
+img2.crossOrigin = "Anonymous";
+img3.crossOrigin = "Anonymous";
+img1.onload = () => {
+    img2.onload = () => {
+        context1.drawImage(img1, 0, 0);
+        context2.drawImage(img2, 0, 0);
+        var imageData1 = context1.getImageData(0, 0, canvas1.width, canvas1.height);
+        var imageData2 = context2.getImageData(0, 0, canvas2.width, canvas2.height);
+        var imageData3 = context3.getImageData(0, 0, canvas2.width, canvas2.height);
+        var width = imageData1.width,
+            height = imageData1.height;
+        var pixels1 = imageData1.data;
+        var pixels2 = imageData2.data;
+        for (var y = 0; y < height; ++y) {
+            for (var x = 0; x < width; ++x) {
+                var base = (y * width + x) * 4;
+                var random = Math.floor(Math.random() * 6) + 5;
+                if (random > 7) {
+                    pixels1[base + 0] = pixels1[base + 0]; // R
+                    pixels1[base + 1] = pixels1[base + 1]; // G
+                    pixels1[base + 2] = pixels1[base + 2]; // B
+                    pixels1[base + 3] = pixels1[base + 3]; // B
+                } else {
+                    pixels1[base + 0] = pixels2[base + 0]; // R
+                    pixels1[base + 1] = pixels2[base + 1]; // G
+                    pixels1[base + 2] = pixels2[base + 2]; // B
+                    pixels1[base + 3] = pixels2[base + 3]; // B
+                }
+            }
+        }
+        context3.putImageData(imageData1, 0, 0);
+    };
+}
+}
+</script>
+
+</head>
+<body onLoad="draw()">
+<h2>MCH合成ツール</h2>
+<canvas id="SimpleCanvas1" width="2000" height="2000" style="background-color:#000000;"></canvas>
+<br>
+<canvas id="SimpleCanvas2" width="2000" height="2000" style="background-color:#000000;"></canvas>
+<br>
+<canvas id="SimpleCanvas3" width="2000" height="2000" style="background-color:#000000;"></canvas>
+</body>
+</html>

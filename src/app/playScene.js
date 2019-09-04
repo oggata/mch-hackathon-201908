@@ -18,6 +18,9 @@ export default {
         this.renseiTime = 0;
     },
     create() {
+
+
+
         let { width, height } = this.sys.game.canvas;
         var rand1 = getRandNumberFromRange(1, 6);
         var rand1str = "p1_" + rand1;

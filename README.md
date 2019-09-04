@@ -1,4 +1,25 @@
+# 1day Blockchain Hackason 2019
+
+This is demo game for blockchain day hackason.
+
+## Usage
+
+open codesandbox
+
 https://codesandbox.io/s/github/oggata/mch-hackathon-201908
 
+## ToDo's
 
-//http://localhost:1234/?address=0xbe21a1ccc576f2978f33227d302e3123843112f0
+## Articles
+
+https://medium.com/mchplus/mchplus-hackathon-feffc811b3d7
+
+## Contact
+
+Fumitoshi Ogata
+- [twitter.com/oggata](http://twitter.com/oggata)
+- oggata@gmail.com
+
+## License
+FacialRecognition is available under the MIT license. 
+See the LICENSE file for more info.
